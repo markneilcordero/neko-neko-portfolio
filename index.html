@@ -1,0 +1,100 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./assets/output.css">
+<link rel="stylesheet" href="assets/pagination.css">
+<script src="assets/jquery-3.7.1.js"></script>
+<script src="assets/pagination.min.js"></script>
+<style>
+@font-face {
+    font-family: 'nekoneko';
+    src: url("assets/oriental-cats-font/OrientalCatsLight-2OzB8.otf") format("opentype");
+}
+body {
+    font-family: 'nekoneko';
+    font-weight: bold;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 3em;
+}
+p {
+    font-size: 2em;
+}
+</style>
+</head>
+<body>
+
+<div class="container mx-auto">
+    <div class="relative h-52 bg-gradient-to-b from-violet-400 via-pink-400 to-orange-400 w-full">
+        <div class="absolute border border-white rounded-lg p-5 text-white text-center w-3/4 m-auto left-0 right-0 top-10">
+            <h1 class="text-2xl">NEKO NEKO</h1>
+            <p class="text-lg">PHOTOGRAPHER</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto">
+    <div class="text-center p-5">
+        <a href="" class="text-lg p-3 text-white bg-gradient-to-r from-violet-400 to-blue-400">Home</a>
+        <a href="" class="text-lg p-3 text-white bg-gradient-to-r from-violet-400 to-blue-400">Portfolio</a>
+        <a href="" class="text-lg p-3 text-white bg-gradient-to-r from-violet-400 to-blue-400">Contact</a>
+    </div>
+</div>
+
+<div id="data-container"></div>
+<div id="pagination-container"></div>
+
+<div class="container mx-auto">
+    <div class="p-5 mt-20 text-white bg-gradient-to-tr from-violet-400 to-pink-400">
+        <h3 class="text-3xl text-center">Contact</h3>
+        <p class="text-lg mb-5">Welcome! Have a question or project in mind? Drop me a message! Simply fill out the form below with your name, email, and a quick note about how I can assist you. I'm excited to hear from you and discuss your photography needs!</p>
+        <form>
+            <label for="name" class="block text-sm font-bold leading-6 text-lg">Name</label>
+            <input type="text" name="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 my-3">
+    
+            <label for="email" class="block text-sm font-bold leading-6 text-lg">Email</label>
+            <input type="email" name="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 my-3">
+    
+            <label for="message" class="block text-sm font-bold leading-6 text-lg">Message</label>
+            <input type="text" name="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 my-3">
+    
+            <input type="submit" value="Send" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 my-5">
+        </form>
+    </div>
+</div>
+
+<footer class="bg-black text-white text-center dark:bg-gray-800 h-14 relative">
+    <p class="text-sm absolute left-0 right-0 top-5"><i style="font-family:consolas;">&#169;</i>&nbsp;2023</p>
+</footer>
+
+<script>
+$('#pagination-container').pagination({
+    dataSource: function(done) {
+        let myArray = [];
+        for (let x = 1; x < 43; x++) {
+            myArray.push('<img src="images/portfolio/image' + x + '.jpg" class="my-3 rounded-lg">')
+        }
+        done(myArray);
+    },
+    pageSize: 8,
+    className: 'paginationjs-theme-blue paginationjs-small justify-center mt-5',
+    callback: function(data, pagination) {
+        var html = myTemplate(data);
+        $('#data-container').html(html);
+    }
+})
+
+function myTemplate(data) {
+    var html = '<div class="columns-2">';
+    $.each(data, function(index, item){
+        html += item;
+    });
+    html += '</div>';
+    return html;
+}
+</script>
+</body>
+</html>
