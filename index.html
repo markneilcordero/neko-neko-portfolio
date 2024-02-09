@@ -75,12 +75,12 @@ $('#pagination-container').pagination({
     dataSource: function(done) {
         let myArray = [];
         for (let x = 1; x < 43; x++) {
-            myArray.push('<img src="images/portfolio/image' + x + '.jpg" class="my-3 rounded-lg">')
+            myArray.push('<img src="images/portfolio/image' + x + '.jpg" class="my-3 rounded-lg">');
         }
         done(myArray);
     },
     pageSize: 8,
-    className: 'paginationjs-theme-blue paginationjs-small justify-center mt-5',
+    className: 'paginationjs-theme-blue paginationjs-big justify-center mt-5',
     callback: function(data, pagination) {
         var html = myTemplate(data);
         $('#data-container').html(html);
@@ -88,7 +88,7 @@ $('#pagination-container').pagination({
 })
 
 function myTemplate(data) {
-    var html = '<div class="columns-2">';
+    var html = '<div class="columns-2 px-3">';
     $.each(data, function(index, item){
         html += item;
     });
