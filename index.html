@@ -27,7 +27,7 @@ p {
 </head>
 <body>
 
-<div class="container mx-auto">
+<div class="container mx-auto" id="home">
     <div class="relative h-52 bg-gradient-to-b from-violet-400 via-pink-400 to-orange-400 w-full">
         <div class="absolute border border-white rounded-lg p-3 text-white text-center w-3/4 m-auto left-0 right-0 top-10">
             <h1 class="text-3xl">NEKO NEKO</h1>
@@ -38,16 +38,16 @@ p {
 
 <div class="container mx-auto">
     <div class="text-center p-5">
-        <a href="" class="text-lg p-3 text-white bg-gradient-to-b from-orange-400 via-pink-400 to-violet-400">Home</a>
-        <a href="" class="text-lg p-3 text-white bg-gradient-to-b from-orange-400 via-pink-400 to-violet-400">Portfolio</a>
-        <a href="" class="text-lg p-3 text-white bg-gradient-to-b from-orange-400 via-pink-400 to-violet-400">Contact</a>
+        <a href="#home" class="text-lg p-3 text-white bg-gradient-to-b from-orange-400 via-pink-400 to-violet-400">Home</a>
+        <a href="#data-container" class="text-lg p-3 text-white bg-gradient-to-b from-orange-400 via-pink-400 to-violet-400">Portfolio</a>
+        <a href="#contact" class="text-lg p-3 text-white bg-gradient-to-b from-orange-400 via-pink-400 to-violet-400">Contact</a>
     </div>
 </div>
 
 <div id="data-container"></div>
 <div id="pagination-container"></div>
 
-<div class="container mx-auto">
+<div class="container mx-auto" id="contact">
     <div class="p-5 mt-20 text-white bg-gradient-to-b from-violet-400 via-pink-400 to-orange-400">
         <h3 class="text-3xl text-center">Contact</h3>
         <p class="text-lg mb-5">Welcome! Have a question or project in mind? Drop me a message! Simply fill out the form below with your name, email, and a quick note about how I can assist you. I'm excited to hear from you and discuss your photography needs!</p>
@@ -79,7 +79,7 @@ $('#pagination-container').pagination({
         }
         done(myArray);
     },
-    pageSize: 8,
+    pageSize: 10,
     className: 'paginationjs-theme-blue paginationjs-big justify-center mt-5',
     callback: function(data, pagination) {
         var html = myTemplate(data);
