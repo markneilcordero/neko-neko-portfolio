@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="assets/pagination.css">
 <script src="assets/jquery-3.7.1.js"></script>
 <script src="assets/pagination.min.js"></script>
+<link rel="stylesheet" href="node_modules/jquery-modal/jquery.modal.css">
+<script src="node_modules/jquery-modal/jquery.modal.js"></script>
 <style>
 @font-face {
     font-family: 'nekoneko';
@@ -85,7 +87,9 @@ $('#pagination-container').pagination({
         }
         done(myArray);
     },
+    pageRange: 1,
     pageSize: 10,
+    hideFirstOnEllipsisShow: true,
     className: 'paginationjs-theme-blue paginationjs-big justify-center mt-5',
     callback: function(data, pagination) {
         var html = myTemplate(data);
@@ -94,9 +98,9 @@ $('#pagination-container').pagination({
 })
 
 function myTemplate(data) {
-    var html = '<div class="columns-2 px-3">';
-    $.each(data, function(index, item){
-        html += item;
+    var html = '<div class="columns-3 px-3 opacity-95">';
+    $.each(data, function(index, item) {
+        html += '<div><a href="#imageId' + index + '" rel="modal:open" data-modal>' + item + '</a><div id="imageId' + index + '" class="modal">' + item + '</div></div>';
     });
     html += '</div>';
     return html;
