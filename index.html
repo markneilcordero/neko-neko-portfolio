@@ -77,6 +77,12 @@ $('#pagination-container').pagination({
         for (let x = 1; x < 43; x++) {
             myArray.push('<img src="images/portfolio/image' + x + '.jpg" class="my-3 rounded-lg">');
         }
+        for (let y = myArray.length-1; y > 0; y--) {
+            let random = Math.floor(Math.random() * (y+1));
+            let a = myArray[y];
+            myArray[y] = myArray[random];
+            myArray[random] = a;
+        }
         done(myArray);
     },
     pageSize: 10,
